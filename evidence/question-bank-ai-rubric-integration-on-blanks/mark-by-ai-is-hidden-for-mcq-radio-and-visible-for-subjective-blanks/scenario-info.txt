@@ -1,0 +1,5 @@
+Title:        Mark by AI is hidden for MCQ (radio) and visible for Subjective (blanks)
+User:         owner
+Subject slug: mathematics
+Base URL:     https://pandai.question.test
+Started:      2026-05-22T09:28:12.723Z

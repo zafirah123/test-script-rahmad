@@ -1,0 +1,4 @@
+Title:    admin can open Rubric List and Create form
+User:     owner
+Base URL: https://pandai.question.test
+Started:  2026-05-22T09:28:08.026Z

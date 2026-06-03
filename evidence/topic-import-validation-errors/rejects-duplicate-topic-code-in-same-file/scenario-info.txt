@@ -1,0 +1,1 @@
+Validates rejection of invalid chapter_code and duplicate topic_code.

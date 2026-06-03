@@ -1,0 +1,24 @@
+{
+  "name": "pandai-e2e",
+  "version": "0.1.0",
+  "private": true,
+  "description": "End-to-end tests for pandai.question using Playwright",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report evidence/html-report",
+    "report:compile": "tsx scripts/compile-evidence.ts",
+    "evidence:upload": "tsx scripts/upload-evidence.ts",
+    "codegen": "playwright codegen http://pandai.question.test"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.658.0",
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.0.0",
+    "dotenv": "^16.4.5",
+    "tsx": "^4.19.0",
+    "xlsx": "^0.18.5"
+  }
+}

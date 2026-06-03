@@ -1,0 +1,1 @@
+Validates that chapter import uses chapter_code as sole unique key. Duplicate chapter_name with different codes should be accepted.

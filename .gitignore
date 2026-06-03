@@ -1,0 +1,10 @@
+node_modules/
+test-results/
+playwright-report/
+playwright/.cache/
+blob-report/
+# evidence/
+evidence/_artifacts
+evidence/html-report
+.env
+.DS_Store

@@ -1,0 +1,1 @@
+Validates that the downloadable topic template includes new columns: chapter_code, parent_topic_code, status_lp, status_teacher, status_student.

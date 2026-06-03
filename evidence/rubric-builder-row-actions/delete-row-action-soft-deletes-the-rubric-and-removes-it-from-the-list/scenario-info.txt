@@ -1,0 +1,4 @@
+Title:    Delete: row action soft-deletes the rubric and removes it from the list
+User:     owner
+Base URL: https://pandai.question.test
+Started:  2026-05-22T09:28:28.136Z

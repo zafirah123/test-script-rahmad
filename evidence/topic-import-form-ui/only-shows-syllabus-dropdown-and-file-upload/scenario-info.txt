@@ -1,0 +1,1 @@
+Validates the topic import form only shows syllabus dropdown after removing year/subject/chapter selectors.

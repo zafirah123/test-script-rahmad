@@ -1,0 +1,5 @@
+Title:        blanks question shows AI mode select, rubric picker populates, fields toggle visibility
+User:         owner
+Subject slug: mathematics
+Base URL:     https://pandai.question.test
+Started:      2026-05-22T09:28:08.038Z

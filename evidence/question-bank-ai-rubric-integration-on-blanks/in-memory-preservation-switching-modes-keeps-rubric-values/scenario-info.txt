@@ -1,0 +1,5 @@
+Title:        in-memory preservation: switching modes keeps rubric values
+User:         owner
+Subject slug: mathematics
+Base URL:     https://pandai.question.test
+Started:      2026-05-22T09:28:15.179Z

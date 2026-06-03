@@ -1,0 +1,4 @@
+Title:    Duplicate: row action clones the rubric and redirects to edit
+User:     owner
+Base URL: https://pandai.question.test
+Started:  2026-05-22T09:28:21.602Z
