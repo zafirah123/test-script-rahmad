@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import { LiveLessonPage } from '../pages/LiveLessonPage';
 import { LoginPage } from '../pages/LoginPage';
 import { note, step } from '../utils/evidence';
+import { ensureLiveAttendance, isLocalTarget, resetSessionAttendance } from '../utils/localDb';
 
 /**
  * Issue #37 — students who missed a Live Tuition session can rate it from the recording.
@@ -17,8 +18,14 @@ const SESSION_ID = process.env.LT_SESSION_ID ?? '5443';
 const RECORDING_VIDEO = process.env.LT_VIDEO ?? 'kkpnoi-cioihv_1690199768530.mp4';
 /** A second ended session the same student DID attend live (needs a live_at attendance row). */
 const LIVE_SESSION_ID = process.env.LT_LIVE_SESSION_ID ?? '5421';
+const USER_ID = process.env.LT_USER_ID ?? '380704';
+const CLASS_ID = process.env.LT_CLASS_ID ?? '2363';
 
 test.describe('Live Tuition - rate a session from its recording', () => {
+  // Both scenarios write to class_attendances, so each restores its own starting state.
+  // Local only: the fixtures are rows in the local application database.
+  test.skip(!isLocalTarget(), 'local-only: reseeds rows in the local application database');
+
   test.beforeEach(async () => {
     await note(
       'scenario-info',
@@ -40,6 +47,10 @@ test.describe('Live Tuition - rate a session from its recording', () => {
   test('watching the recording unlocks the rating, including the video-quality question', async ({ page }) => {
     const login = new LoginPage(page);
     const live = new LiveLessonPage(page);
+
+    // Back to "never attended, never watched" — a previous run leaves watch_at and a rating,
+    // which would make the "before watching" assertions pass for the wrong reason.
+    resetSessionAttendance(USER_ID, SESSION_ID);
 
     await step(page, 'open sign-in page', async () => {
       await login.goto();
@@ -114,6 +125,9 @@ test.describe('Live Tuition - rate a session from its recording', () => {
   test('a live attendee keeps the one-tap flow with no video-quality question', async ({ page }) => {
     const login = new LoginPage(page);
     const live = new LiveLessonPage(page);
+
+    // A live_at row with no rating — otherwise there is nothing to open the modal on.
+    ensureLiveAttendance(USER_ID, CLASS_ID, LIVE_SESSION_ID);
 
     await note(
       'scenario-info',
